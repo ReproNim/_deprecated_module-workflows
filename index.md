@@ -2,7 +2,9 @@
 layout: lesson
 ---
 
-TODO: Here provide a very short (1 sentence) description of the module.
+Top-down presentations of complete workflows with reproducibility in
+mind, which take advantage of tools and concepts introduced in
+[earlier "bottom up" training modules](http://www.repronim.org/teach.html).
 
 This module is a part of the training curriculum from
 the [ReproNim](http://www.reproducibleimaging.org) (Reproducible Neuroimaging) Center.
