@@ -61,6 +61,9 @@ keypoints:
 
 ## Introduction
 
+> **TODO:** bring up and reference YODA https://github.com/myyoda/ or directly
+> OHBM poster https://github.com/myyoda/poster
+
 In this lesson, we will carry out a full (although very basic) functional
 imaging study, going from raw data to complete data-analysis results.  We will
 start from imaging data in DICOM format — as if we had just finished scanning.
@@ -87,6 +90,9 @@ achieve these goals with relatively minimal effort.
 > of two extension packages: [datalad-neuroimaging] and [datalad-container].
 >
 > {:callout}
+
+> **TODO:** not clear why datalad-neuroimaging is needed and either is used, 
+> may be could be removed 
 
 ### Joint Management of Data, Code, and Computional Environments
 
@@ -276,6 +282,16 @@ DataLad (via its [datalad-container] extension) provides support for using and
 managing such environments for data processing. We can add an image of a
 computational environment to a DataLad dataset (just like any other) file, so we
 know exactly what we are using and where to get it again in the future.
+
+> **TODO:** Switch to use "standard" release of ReproIn container as shipped within
+> https://github.com/ReproNim/containers
+>
+> Within ReproIn VM we should ship a clone with needed images prefetched
+> and instruct ppl to add it as a remote thus demonstrating git-annex powers
+> for redundant availability
+
+> **TODO:** Add reference to the other modules/lessons on how to create your own
+> container(s)
 
 A ready-made [singularity] container with the [HeuDiConv] DICOM converter
 (~160 MB) is available from [singularity-hub] at:
@@ -503,6 +519,13 @@ setup procedure:
 >
 {: .challenge}
 
+> **TODO:** RF or remove dependency on external sources, such as sfn2018-training
+> for extra materials.
+
+> **TODO:** try fitlins as to provide convenient and avoiding hacking 
+> specification GLM analysis 
+
+
 Before we can fire up FSL for our GLM analysis, we need two pieces of custom
 code:
 
@@ -563,6 +586,9 @@ expects. First, let's convert the events.tsv file into EV3 format files.
 > {: .solution}
 >
 {: .challenge}
+
+> **TODO:** should use/rely on containers from ReproNim/containers, not 
+> some custom ones
 
 Now we're ready for FSL! And since FSL is certainly not a simple, system
 program, we will again use it in a container and add that container to this
@@ -704,6 +730,12 @@ as time steps.
 > {: .bash}
 > {% endraw %}
 
+
+> **TODO** Add section on using ReproMan and `reproman run` to 
+> execute sample computation (or re-computation) on AWS
+
+> **TODO** Add section on publishing either entire study or specific 
+> results/subdatasets 
 
 [datalad add-sibling]: http://datalad.readthedocs.io/en/latest/generated/man/datalad-add-sibling.html
 [datalad add]: http://datalad.readthedocs.io/en/latest/generated/man/datalad-add.html
