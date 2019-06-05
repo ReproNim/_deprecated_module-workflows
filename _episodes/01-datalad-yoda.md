@@ -61,11 +61,10 @@ keypoints:
 
 ## Introduction
 
-> **TODO:** bring up and reference YODA https://github.com/myyoda/ or directly
-> OHBM poster https://github.com/myyoda/poster
-
 In this lesson, we will carry out a full (although very basic) functional
-imaging study, going from raw data to complete data-analysis results.  We will
+imaging study, going from raw data to complete data-analysis results.  This 
+work flow is created with [YODA principles](https://github.com/myyoda/talk-principles)
+in mind to guarantee reproducibility. We will
 start from imaging data in DICOM format — as if we had just finished scanning.
 Importantly, we will conduct this analysis so that it
 
