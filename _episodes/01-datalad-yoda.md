@@ -373,9 +373,47 @@ environment. Here, we will use the latter.
 >
 {: .challenge}
 
+
+> ## Task: Convert DICOMs by running computation elsewhere (e.g. AWS EC2)
+> [ReproMan](http://reproman.repronim.org) provides unified interfaces to 
+> manage and interact with various computational resources in a unified way.
+> One of the goals is to facilitate execution of computation on remote resources
+> while using DataLad for doing all data logistics.
+> 
+> > ## Solution
+> > `reproman run` invocation looks similar to `datalad containers-run`, and 
+> > just requires first to configure the remote resource using `reproman create`
+> > ~~~
+> > % TODO: setup my-nitrc resource using reproman create 
+> > % reproman create -t aws-ec2 my-nitrc \
+> >    -b region_name=us-west-1 image=ami-059e7901352ebaef8 
+> >    # security_group=ssh-only key_name=yoh@hopa-west2 instance_type=t2.medium
+> > % reproman run -m "Convert sub-02 DICOMs"            \
+> >     -r my-nitrc                                     \
+> >     --orchestrator datalad-pair-run                 \
+> >     --submitter local                               \
+> >     -b container=reproin                            \
+> >     heudiconv                                       \
+> >       -f reproin --bids -s 02 --files inputs/rawdata/dicoms -o .
+> > % reproman jobs -s     # to see the state of the jobs
+> > % reproman jobs JOBID  # to fetch results whenever done
+> > ~~~
+> > {: .bash}
+> > The end result will be the same -- git commit  with a `datalad run` record 
+> > on how the files were produced.
+> > 
+> > **TODO**: parallel `reproman run` example to schedule/execute conversion e.g.
+> > across subjects
+> {: .solution}
+>
+{: .challenge}
+
+
 You can now confirm that a NIfTI file has been added to the dataset and that its
 name is compliant with the [BIDS] standard. Information such as the task-label
 has been automatically extracted from the imaging sequence description.
+
+### Finalize BIDSification 
 
 There is only one thing missing before we can analyze our functional
 imaging data: we need to know what stimulation was done at which point during
@@ -731,11 +769,8 @@ as time steps.
 > {% endraw %}
 
 
-> **TODO** Add section on using ReproMan and `reproman run` to 
-> execute sample computation (or re-computation) on AWS
-
 > **TODO** Add section on publishing either entire study or specific 
-> results/subdatasets 
+> results/subdatasets  to GitHub + e.g. figshare
 
 [datalad add-sibling]: http://datalad.readthedocs.io/en/latest/generated/man/datalad-add-sibling.html
 [datalad add]: http://datalad.readthedocs.io/en/latest/generated/man/datalad-add.html
