@@ -378,6 +378,8 @@ environment. Here, we will use the latter.
 > manage and interact with various computational resources in a unified way.
 > One of the goals is to facilitate execution of computation on remote resources
 > while using DataLad for doing all data logistics.
+>
+> ![ReproMan execution](../fig/3-ec2-run_preview.png)
 > 
 > > ## Solution
 > > `reproman run` invocation looks similar to `datalad containers-run`, and 
